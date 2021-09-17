@@ -14,6 +14,7 @@ namespace Caso1
         [STAThread]
         static void Main()
         {
+            Component c1 = new Component("Combo",new MainDish(),new Dictionary<String,ArrayList<Component>>());
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
