@@ -8,31 +8,32 @@ namespace Caso1.Model{
         MainDish mainDish;
         Dictionary<string,List<Component>> components;
 
-        public Combo(string name,Component mainDish,Dictionary<string,List<Component>> components){
+        public Combo(string name,MainDish mainDish,Dictionary<string,List<Component>> components){
             this.name = name;
             this.mainDish = mainDish;
             this.components = components;
         }
 
         //Clase comboBuidler va a ser usada por el factory para crear los nuevos combos
-        public static class ComboBuilder:IBuilder<Combo>{
+        public class ComboBuilder:IBuilder<Combo>{
 
-            static string name;
-            static MainDish mainDish;
-            static Dictionary<string,List<Component>> components;
+            string name;
+            MainDish mainDish;
+            //Falta inicializar el diccionario y sus metodos de uso.
+            Dictionary<string,List<Component>> components;
 
-            static ComboBuilder setName(string name){
+            ComboBuilder setName(string name){
                 this.name = name;
                 return this;
             }
 
             //Solo puede tener un plato principal y tiene que ser de tipo MainDish
-            static ComboBuilder setMainDish(MainDish mainDish){
-                this.name = name;
+            ComboBuilder setMainDish(MainDish mainDish){
+                this.mainDish = mainDish;
                 return this;
             }
 
-            public static Combo build(){
+            public Combo build(){
                 return new Combo(this.name,this.mainDish,this.components);
             }
         }

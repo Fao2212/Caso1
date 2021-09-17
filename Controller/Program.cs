@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Caso1.Model;
 
 namespace Caso1
 {
@@ -14,7 +15,7 @@ namespace Caso1
         [STAThread]
         static void Main()
         {
-            Component c1 = new Component("Combo",new MainDish(),new Dictionary<String,ArrayList<Component>>());
+            Combo c1 = new Combo("Combo",new MainDish(),new Dictionary<String,List<Component>>());
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
