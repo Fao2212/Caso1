@@ -1,0 +1,128 @@
+{
+  "combos": [
+    {
+      "name": "Combo 1",
+      "mainDish": "ham",
+      "components": [
+        "gas",
+        "pap"
+      ],
+      "price": "1500"
+    },
+    {
+      "name": "Combo 2",
+      "mainDish": "poll",
+      "components": [
+        "gas",
+        "pap"
+      ],
+      "price": "2500"
+    },
+    {
+      "name": "Combo 3",
+      "mainDish": "hdog",
+      "components": [
+        "gas",
+        "pur"
+      ],
+      "price": "1800"
+    },
+    {
+      "name": "Combo 4",
+      "mainDish": "piz",
+      "components": [
+        "gas"
+      ],
+      "price": "3000"
+    },
+    {
+      "name": "Combo 5",
+      "mainDish": "piz",
+      "components": [
+        "gas",
+        "ens",
+        "tleches"
+      ],
+      "price": "3500"
+    }
+  ],
+  "adicionales": [
+    {
+      "name": "papas",
+      "price": "500",
+      "type": "Additional",
+      "code":  "pap"
+    },
+    {
+      "name": "tres leches",
+      "price": "800",
+      "type": "Additional",
+      "code": "tleches"
+    },
+    {
+      "name": "ensalada",
+      "price": "500",
+      "type": "Additional",
+      "code": "ens"
+    },
+    {
+      "name": "pure",
+      "price": "600",
+      "type": "Additional",
+      "code": "pur"
+    }
+
+  ],
+  "bebidas": [
+    {
+      "name": "CocaCola",
+      "price": "700",
+      "type": "Drink",
+      "code": "coca"
+    },
+    {
+      "name": "Jugo de Naranja",
+      "price": "1000",
+      "type": "Drink",
+      "code": "jNaran"
+    },
+    {
+      "name": "café",
+      "price": "500",
+      "type": "Drink",
+      "code": "caf"
+    },
+    {
+      "name": "chocolate",
+      "price": "600",
+      "type": "Drink",
+      "code": "choc"
+    }
+  ],
+  "platosFuerte": [
+    {
+      "name": "Hamburguesa",
+      "price": "1000",
+      "code": "ham",
+      "type": "MainDish"
+    },
+    {
+      "name": "Pollo",
+      "price": "1200",
+      "code": "poll",
+      "type": "MainDish"
+    },
+    {
+      "name": "Hot dog",
+      "price": "800",
+      "code": "hdog",
+      "type": "MainDish"
+    },
+    {
+      "name": "Pizza",
+      "price": "2000",
+      "code": "piz",
+      "type": "MainDish"
+    }
+  ]
+}
