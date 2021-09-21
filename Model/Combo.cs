@@ -61,7 +61,7 @@ namespace Caso1.Model{
             return new Combo(this.name,this.mainDish,dictionaryClone);
         }
 
-        void addComponent(IAddable component){
+        public void addComponent(IAddable component){
             Component savedComponent = this.components[component.getCode()];
             if(savedComponent is null){
                 savedComponent.addQuantity();}
@@ -105,7 +105,7 @@ namespace Caso1.Model{
             return additionalString;
         }
 
-        string toString(){
+        public string toString(){
             string comboString = "Combo: "+this.name+"\n";
             comboString+="Main Dish: "+ this.mainDish.toString();
             comboString+="\t"+showDrinks()+"\n";

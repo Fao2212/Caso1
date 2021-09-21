@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Caso1.Model;
+using Caso1.Model.Factories;
 
 namespace Caso1
 {
@@ -12,14 +13,34 @@ namespace Caso1
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+
+
         [STAThread]
         static void Main()
         {
-            Combo c1 = new Combo("Combo",new MainDish("test","testMain",2000),new Dictionary<String,Component>());
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Creacion de los Componentes
+            Additional a1 = new Additional("atest","testAdicional",250);
+            MainDish m1 = new MainDish("test","testMain",250);
+            Drink d1 = new Drink("dtest","testD",250);
+
+            //Todavia tengo que probar la parte estatica.
+
+            new ComponentPrototypeFactory().save(a1);
+            new ComponentPrototypeFactory().save(m1);
+            new ComponentPrototypeFactory().save(d1);
+
+            //Creacion de combos utilizando el ComponentPrototypeFactory solo acepta IAddable
+            //Solo deberian poder agregarse componentes existentes definidos en el JSON
+            Combo c1 = new Combo("Combo",(MainDish)new ComponentPrototypeFactory().get("test"),new Dictionary<String,Component>());
+            c1.addComponent((IAddable) new ComponentPrototypeFactory().get("atest"));//Solo puedo agregar IAddable.
+            Console.WriteLine(c1.toString());
+            Console.WriteLine("End");
+
+            //Parte de vista.
+            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
         }
     }
 }
