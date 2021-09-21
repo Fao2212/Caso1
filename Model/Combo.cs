@@ -1,14 +1,15 @@
 using System.Collections.Generic;
+using Caso1.Model.Factories;
 
 namespace Caso1.Model{
 
-    class Combo:IPrototype<Combo>{
+    public class Combo:IPrototype<Combo>{
 
         string name;
         MainDish mainDish;
-        Dictionary<string,List<Component>> components;
+        Dictionary<string,Component> components;
 
-        public Combo(string name,MainDish mainDish,Dictionary<string,List<Component>> components){
+        public Combo(string name,MainDish mainDish,Dictionary<string,Component> components){
             this.name = name;
             this.mainDish = mainDish;
             this.components = components;
@@ -19,8 +20,7 @@ namespace Caso1.Model{
 
             string name;
             MainDish mainDish;
-            //Falta inicializar el diccionario y sus metodos de uso.
-            Dictionary<string,List<Component>> components;
+            Dictionary<string,Component> components = new Dictionary<string,Component>();
 
             ComboBuilder setName(string name){
                 this.name = name;
@@ -33,41 +33,85 @@ namespace Caso1.Model{
                 return this;
             }
 
+            ComboBuilder addComponent(IAddable component){
+                Component savedComponent = this.components[component.getCode()];
+                if(savedComponent is null){
+                    savedComponent.addQuantity();}
+                else{
+                    this.components.Add(component.getCode(),new ComponentPrototypeFactory().get(component.getCode()));
+                }
+                return this;
+            }
+
             public Combo build(){
                 return new Combo(this.name,this.mainDish,this.components);
             }
         }
-        
-        //TODO:Como va a presentarse el combo?
-        public string toString(){
-            return "";
-        }
+
         public Combo clone(){
-            return new Combo(this.name,this.mainDish,new Dictionary<string,List<Component>>());
+            return new Combo(this.name,this.mainDish,new Dictionary<string,Component>());
         }
 
-        //deepClone queda muy feo
         public Combo deepClone(){
-            Dictionary<string,List<Component>> dictionaryClone = new Dictionary<string,List<Component>>();
-            foreach (string key in this.components.Keys)
+            Dictionary<string,Component> dictionaryClone = new Dictionary<string,Component>();
+            foreach (KeyValuePair<string, Component> component in this.components)
             {
-                //Si se tienen que clonar los componentes porque si se modifica algun combo cambiaria todas las referencias no clonadas
-                List<Component> componentsClone = new List<Component>();
-                foreach (Component component in this.components[key])
-                {
-                    componentsClone.Add(component.clone());
-                }
-                dictionaryClone.Add(key,componentsClone);
+                dictionaryClone.Add(component.Key,component.Value.clone());
             }
             return new Combo(this.name,this.mainDish,dictionaryClone);
         }
 
-        //Agrega un componente al diccionario. Los componentes ya tienen su nombre. Esto para agregar a los ya existentes.
-        void addComponent(Component component){
-            
+        void addComponent(IAddable component){
+            Component savedComponent = this.components[component.getCode()];
+            if(savedComponent is null){
+                savedComponent.addQuantity();}
+            else{
+                this.components.Add(component.getCode(),new ComponentPrototypeFactory().get(component.getCode()));
+            }
         }
 
         //Necesito funciones que me traigan de el diccionario de componentes el componente a buscar y la cantidad de estos.
+        List<Component> getDrinks(){
+            List<Component> drinks = new List<Component>();
+            foreach (Component component in this.components.Values)
+            {
+                if(component.getType()==ComponentType.Drink)drinks.Add(component);
+            }
+            return drinks;
+        }
+        List<Component> getAdditionals(){
+            List<Component> additionals = new List<Component>();
+            foreach (Component component in this.components.Values)
+            {
+                if(component.getType()==ComponentType.Additional)additionals.Add(component);
+            }
+            return additionals;
+        }
+
+        string showDrinks(){
+            string drinksString = "Drinks:\n";
+            foreach (Component component in getDrinks())
+            {
+                drinksString += "\t"+component.toString();
+            }
+            return drinksString;
+        }
+        string showAdditionals(){
+            string additionalString = "Additionals:\n";
+            foreach (Component component in getAdditionals())
+            {
+                additionalString += "\t"+component.toString();
+            }
+            return additionalString;
+        }
+
+        string toString(){
+            string comboString = "Combo: "+this.name+"\n";
+            comboString+="Main Dish: "+ this.mainDish.toString();
+            comboString+="\t"+showDrinks()+"\n";
+            comboString+="\t"+showAdditionals()+"\n";
+            return comboString;
+        }
     }
 
 }

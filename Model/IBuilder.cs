@@ -1,5 +1,5 @@
 namespace Caso1.Model{
-    interface IBuilder<T>{
+    public interface IBuilder<T>{
         T build();
     }
 }

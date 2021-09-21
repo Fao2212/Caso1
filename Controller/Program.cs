@@ -15,7 +15,7 @@ namespace Caso1
         [STAThread]
         static void Main()
         {
-            Combo c1 = new Combo("Combo",new MainDish(),new Dictionary<String,List<Component>>());
+            Combo c1 = new Combo("Combo",new MainDish("test","testMain",2000),new Dictionary<String,Component>());
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

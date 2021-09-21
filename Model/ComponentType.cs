@@ -1,5 +1,5 @@
 namespace Caso1.Model{
-    enum ComponentType{
+    public enum ComponentType{
         MainDish,
         Drink,
         Additional

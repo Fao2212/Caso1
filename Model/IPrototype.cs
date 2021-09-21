@@ -1,5 +1,5 @@
 namespace Caso1.Model{
-    interface IPrototype<T>{
+    public interface IPrototype<T>{
         T clone();
         T deepClone();
     }
