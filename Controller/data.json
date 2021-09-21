@@ -1,57 +1,10 @@
 {
-  "combos": [
-    {
-      "name": "Combo 1",
-      "mainDish": "ham",
-      "components": [
-        "gas",
-        "pap"
-      ],
-      "price": "1500"
-    },
-    {
-      "name": "Combo 2",
-      "mainDish": "poll",
-      "components": [
-        "gas",
-        "pap"
-      ],
-      "price": "2500"
-    },
-    {
-      "name": "Combo 3",
-      "mainDish": "hdog",
-      "components": [
-        "gas",
-        "pur"
-      ],
-      "price": "1800"
-    },
-    {
-      "name": "Combo 4",
-      "mainDish": "piz",
-      "components": [
-        "gas"
-      ],
-      "price": "3000"
-    },
-    {
-      "name": "Combo 5",
-      "mainDish": "piz",
-      "components": [
-        "gas",
-        "ens",
-        "tleches"
-      ],
-      "price": "3500"
-    }
-  ],
-  "adicionales": [
+  "Additional": [
     {
       "name": "papas",
       "price": "500",
       "type": "Additional",
-      "code":  "pap"
+      "code": "pap"
     },
     {
       "name": "tres leches",
@@ -71,58 +24,138 @@
       "type": "Additional",
       "code": "pur"
     }
-
   ],
-  "bebidas": [
+  "Drink": [
     {
+      "code": "coca",
       "name": "CocaCola",
-      "price": "700",
-      "type": "Drink",
-      "code": "coca"
+      "price": 700,
+      "quantity": 1,
+      "type": "Drink"
+
     },
     {
+      "code": "jNaran",
       "name": "Jugo de Naranja",
       "price": "1000",
-      "type": "Drink",
-      "code": "jNaran"
+      "quantity": 1,
+      "type": "Drink"
+
     },
     {
-      "name": "café",
+      "code": "caf",
+      "name": "cafe",
       "price": "500",
-      "type": "Drink",
-      "code": "caf"
+      "quantity": 1,
+      "type": "Drink"
+
     },
     {
+      "code": "choc",
       "name": "chocolate",
       "price": "600",
-      "type": "Drink",
-      "code": "choc"
+      "quantity": 1,
+      "type": "Drink"
+
     }
   ],
-  "platosFuerte": [
+  "MainDish": [
     {
+      "code": "ham",
       "name": "Hamburguesa",
       "price": "1000",
-      "code": "ham",
       "type": "MainDish"
     },
     {
+      "code": "poll",
       "name": "Pollo",
       "price": "1200",
-      "code": "poll",
       "type": "MainDish"
     },
     {
+      "code": "hdog",
       "name": "Hot dog",
       "price": "800",
-      "code": "hdog",
       "type": "MainDish"
     },
     {
+      "code": "piz",
       "name": "Pizza",
       "price": "2000",
-      "code": "piz",
       "type": "MainDish"
     }
+  ],
+  "Combo": [
+    {
+      "name": "Combo 1",
+      "MainDish": {
+        "name": "Hamburguesa",
+        "price": "1000",
+        "code": "ham",
+        "type": "MainDish"
+      },
+      "components": [
+        "gas",
+        "pap"
+      ],
+      "price": "1500"
+    },
+    {
+      "name": "Combo 2",
+      "MainDish": {
+        "name": "Pollo",
+        "price": "1200",
+        "code": "poll",
+        "type": "MainDish"
+      },
+      "components": [
+        "gas",
+        "pap"
+      ],
+      "price": "2500"
+    },
+    {
+      "name": "Combo 3",
+      "MainDish": {
+        "name": "Hot dog",
+        "price": "800",
+        "code": "hdog",
+        "type": "MainDish"
+      },
+      "components": [
+        "gas",
+        "pur"
+      ],
+      "price": "1800"
+    },
+    {
+      "name": "Combo 4",
+      "MainDish": {
+        "name": "Pizza",
+        "price": "2000",
+        "code": "piz",
+        "type": "MainDish"
+      },
+      "components": [
+        "gas"
+      ],
+      "price": "3000"
+    },
+    {
+      "name": "Combo 5",
+      "MainDish": {
+        "name": "Pizza",
+        "price": "2000",
+        "code": "piz",
+        "type": "MainDish"
+      },
+      "components": [
+        "gas",
+        "ens",
+        "tleches"
+      ],
+      "price": "3500"
+    }
   ]
+
 }
