@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -36,11 +36,16 @@ namespace Caso1
             Console.WriteLine(c1.toString());
             Console.WriteLine("End");
 
-            //Parte de vista.
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            RestaurantJsonStructure restaurantData = new ComboDatabase().loadData();
+            System.Diagnostics.Debug.WriteLine(restaurantData.MainDish[0].toString());
+            
+
+            Application.Run(new Form1());
+
         }
     }
 }

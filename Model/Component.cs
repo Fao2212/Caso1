@@ -7,7 +7,7 @@ namespace Caso1.Model{
         protected int quantity;
         protected ComponentType type;
 
-        public Component(string code,string name,double price){
+        public Component(string code,string name,double price,int quantity,ComponentType type){
             this.code = code;
             this.name = name;
             this.price = price;
@@ -39,12 +39,14 @@ namespace Caso1.Model{
         public string toString(){
             return "Nombre: "+this.name+" x"+this.quantity+"\tTotal: ₡"+this.price;
         }
+        
         public Component clone(){
             return new Component(this.code,this.name,this.price,this.type);
         }
         public Component deepClone(){
             return clone();
         }
+
     }
 
 }
