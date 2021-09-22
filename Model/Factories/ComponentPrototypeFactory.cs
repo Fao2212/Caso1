@@ -11,7 +11,7 @@ namespace Caso1.Model.Factories{
         }
 
         public Component get(string componentCode){
-            return ComponentPrototypeFactory.components[componentCode];
+            return ComponentPrototypeFactory.components[componentCode].deepClone();
         }
 
         public void save(Component component){
