@@ -35,6 +35,19 @@ namespace Caso1
             //Label.text()asdasdsad
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void lblAdicionales_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCombos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }   

@@ -15,7 +15,7 @@ namespace Caso1.Model
     
     class ComboDatabase
     {
-        // Cambiar la ubicación del Json para no tener que poner la ruta. 
+        
         private static string _path = "data.json";
 
 
