@@ -17,5 +17,14 @@ namespace Caso1.Model
 
         // Revisar el tema del diccionario y cargar el MainDish con sólo el código.
         public List<ComboJsonStructure> ComboJsonStructure { get; set; }
+
+
+        public List<Component> GetComponents()
+        {
+            List<Component> components =  new List<Component>(Additional);
+            components.Concat(Drink).Concat(MainDish);
+            return components;
+        }
+
     }
 }

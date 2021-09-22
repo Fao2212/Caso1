@@ -21,8 +21,7 @@ namespace Caso1.Model
 
         public Combo toCombo()
         {
-            return null;
-            //return new Combo(name, mainDish, componentCodes);
+            return new Combo(name, mainDish, components);
         }
     }
 }

@@ -89,6 +89,11 @@ namespace Caso1.Model{
             }
         }
 
+        public string getName()
+        {
+            return this.name; 
+        }
+
         //Necesito funciones que me traigan de el diccionario de componentes el componente a buscar y la cantidad de estos.
         List<Component> getDrinks(){
             List<Component> drinks = new List<Component>();

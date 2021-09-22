@@ -8,7 +8,7 @@ using System.Text.Encodings;
 using System.IO;
 //using System.Text.Json;
 using Newtonsoft.Json;
-
+using Caso1.Model.Factories;
 
 namespace Caso1.Model
 {
@@ -37,5 +37,21 @@ namespace Caso1.Model
 
         }
 
+        public void loadData(bool test)
+        {
+            string dataJson = getDataFromJsonFile();
+            RestaurantJsonStructure restaurantData = JsonConvert.DeserializeObject<RestaurantJsonStructure>(dataJson);
+
+            foreach (Component component in restaurantData.GetComponents())
+            {
+                new ComponentPrototypeFactory().save(component);
+            }
+
+            foreach(ComboJsonStructure combo in restaurantData.ComboJsonStructure)
+            {
+                new ComboPrototypeFactory().save(combo.toCombo());
+            }
+
+        }
     }
 }
