@@ -42,9 +42,13 @@ namespace Caso1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            RestaurantJsonStructure restaurantData = new ComboDatabase().loadData();
-            System.Diagnostics.Debug.WriteLine(restaurantData.MainDish[0].toString());
-            
+            //RestaurantJsonStructure restaurantData = new ComboDatabase().loadData();
+            //System.Diagnostics.Debug.WriteLine(restaurantData.MainDish[0].toString());
+
+            //Se pueden arreglar los metodos para que agrgar no sea tan feo
+            new ComboDatabase().loadData(false);
+            Combo c3 = new Combo.ComboBuilder().setName("Test2").setMainDish((MainDish)new ComponentPrototypeFactory().get("ham")).addComponent((IAddable)new ComponentPrototypeFactory().get("tleches")).build();
+            System.Diagnostics.Debug.WriteLine(c3.toString());
 
             Application.Run(new Form1());
 

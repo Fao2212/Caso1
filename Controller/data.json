@@ -35,6 +35,14 @@
 
     },
     {
+      "code": "gas",
+      "name": "Gaseosa",
+      "price": 500,
+      "quantity": 1,
+      "type": "Drink"
+
+    },
+    {
       "code": "jNaran",
       "name": "Jugo de Naranja",
       "price": "1000",

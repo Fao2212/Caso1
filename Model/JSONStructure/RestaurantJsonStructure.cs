@@ -21,8 +21,7 @@ namespace Caso1.Model
 
         public List<Component> GetComponents()
         {
-            List<Component> components =  new List<Component>(Additional);
-            components.Concat(Drink).Concat(MainDish);
+            List<Component> components = new List<Component>(Additional).Concat(Drink).Concat(MainDish).ToList();
             return components;
         }
 
