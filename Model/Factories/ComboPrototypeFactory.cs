@@ -15,7 +15,7 @@ namespace Caso1.Model.Factories
 
         public Combo get(string comboCode)
         {
-            return ComboPrototypeFactory.combos[comboCode];
+            return ComboPrototypeFactory.combos[comboCode].deepClone();
         }
 
         public void save(Combo combo)
