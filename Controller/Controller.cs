@@ -13,7 +13,7 @@ namespace Caso1.Controller
     {
         List<Combo> combos;
         ComboBuilder comboActual = new ComboBuilder();
-        Form1 f = new Form1(this);
+        /*Form1 f = new Form1(this);*/
 
 
         public void addToComboActual(string code)
@@ -22,18 +22,18 @@ namespace Caso1.Controller
             //updateTotal();
         }
 
-        public void build()
+        /*public void build()
         {
             Combo c = comboActual.build();
             f.showCombo(c.toString());
-        }
+        }*/
 
-        public void updateTotal()
+        /*public void updateTotal()
         {
             foreach combo{
                 precio
             }
             f.showTotal(precio);
-        }
+        }*/
     }
 }

@@ -51,7 +51,7 @@ namespace Caso1
             Combo c3 = new Combo.ComboBuilder().setName("Test2").setMainDish((MainDish)new ComponentPrototypeFactory().get("ham")).addComponent((IAddable)new ComponentPrototypeFactory().get("tleches")).build();
             System.Diagnostics.Debug.WriteLine(c3.toString());
 
-            //Application.Run(new Form1());
+            Application.Run(new Form1());
         }
     }
 }

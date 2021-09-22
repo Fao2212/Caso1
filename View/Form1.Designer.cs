@@ -38,19 +38,19 @@
             this.cmbPlatosFuerte = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCantidadBebida = new System.Windows.Forms.Label();
+            this.btnBebidasMas = new System.Windows.Forms.Button();
+            this.btnBebidasMenos = new System.Windows.Forms.Button();
             this.cmbBebidas = new System.Windows.Forms.ComboBox();
             this.lblBebidas = new System.Windows.Forms.Label();
             this.pnlAdicionales = new System.Windows.Forms.Panel();
-            this.lblAdicionales = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pnlDerecho = new System.Windows.Forms.Panel();
-            this.btnBebidasMenos = new System.Windows.Forms.Button();
-            this.btnBebidasMas = new System.Windows.Forms.Button();
-            this.lblCantidadBebida = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblAdicionales = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pnlDerecho = new System.Windows.Forms.Panel();
             this.pnlCentral.SuspendLayout();
             this.pnlIzquierdo.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -170,6 +170,33 @@
             this.panel1.Size = new System.Drawing.Size(763, 153);
             this.panel1.TabIndex = 2;
             // 
+            // lblCantidadBebida
+            // 
+            this.lblCantidadBebida.AutoSize = true;
+            this.lblCantidadBebida.Location = new System.Drawing.Point(300, 82);
+            this.lblCantidadBebida.Name = "lblCantidadBebida";
+            this.lblCantidadBebida.Size = new System.Drawing.Size(17, 20);
+            this.lblCantidadBebida.TabIndex = 12;
+            this.lblCantidadBebida.Text = "0";
+            // 
+            // btnBebidasMas
+            // 
+            this.btnBebidasMas.Location = new System.Drawing.Point(166, 78);
+            this.btnBebidasMas.Name = "btnBebidasMas";
+            this.btnBebidasMas.Size = new System.Drawing.Size(94, 29);
+            this.btnBebidasMas.TabIndex = 11;
+            this.btnBebidasMas.Text = "Más";
+            this.btnBebidasMas.UseVisualStyleBackColor = true;
+            // 
+            // btnBebidasMenos
+            // 
+            this.btnBebidasMenos.Location = new System.Drawing.Point(43, 78);
+            this.btnBebidasMenos.Name = "btnBebidasMenos";
+            this.btnBebidasMenos.Size = new System.Drawing.Size(94, 29);
+            this.btnBebidasMenos.TabIndex = 3;
+            this.btnBebidasMenos.Text = "Menos";
+            this.btnBebidasMenos.UseVisualStyleBackColor = true;
+            // 
             // cmbBebidas
             // 
             this.cmbBebidas.FormattingEnabled = true;
@@ -200,62 +227,6 @@
             this.pnlAdicionales.Name = "pnlAdicionales";
             this.pnlAdicionales.Size = new System.Drawing.Size(763, 161);
             this.pnlAdicionales.TabIndex = 1;
-            // 
-            // lblAdicionales
-            // 
-            this.lblAdicionales.AutoSize = true;
-            this.lblAdicionales.Location = new System.Drawing.Point(300, 32);
-            this.lblAdicionales.Name = "lblAdicionales";
-            this.lblAdicionales.Size = new System.Drawing.Size(102, 20);
-            this.lblAdicionales.TabIndex = 0;
-            this.lblAdicionales.Text = "ADICIONALES";
-            this.lblAdicionales.Click += new System.EventHandler(this.lblAdicionales_Click);
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 542);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(763, 52);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Añadir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pnlDerecho
-            // 
-            this.pnlDerecho.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDerecho.Location = new System.Drawing.Point(763, 0);
-            this.pnlDerecho.Name = "pnlDerecho";
-            this.pnlDerecho.Size = new System.Drawing.Size(340, 594);
-            this.pnlDerecho.TabIndex = 0;
-            // 
-            // btnBebidasMenos
-            // 
-            this.btnBebidasMenos.Location = new System.Drawing.Point(43, 78);
-            this.btnBebidasMenos.Name = "btnBebidasMenos";
-            this.btnBebidasMenos.Size = new System.Drawing.Size(94, 29);
-            this.btnBebidasMenos.TabIndex = 3;
-            this.btnBebidasMenos.Text = "Menos";
-            this.btnBebidasMenos.UseVisualStyleBackColor = true;
-            // 
-            // btnBebidasMas
-            // 
-            this.btnBebidasMas.Location = new System.Drawing.Point(166, 78);
-            this.btnBebidasMas.Name = "btnBebidasMas";
-            this.btnBebidasMas.Size = new System.Drawing.Size(94, 29);
-            this.btnBebidasMas.TabIndex = 11;
-            this.btnBebidasMas.Text = "Más";
-            this.btnBebidasMas.UseVisualStyleBackColor = true;
-            // 
-            // lblCantidadBebida
-            // 
-            this.lblCantidadBebida.AutoSize = true;
-            this.lblCantidadBebida.Location = new System.Drawing.Point(300, 82);
-            this.lblCantidadBebida.Name = "lblCantidadBebida";
-            this.lblCantidadBebida.Size = new System.Drawing.Size(17, 20);
-            this.lblCantidadBebida.TabIndex = 12;
-            this.lblCantidadBebida.Text = "0";
             // 
             // label2
             // 
@@ -291,6 +262,35 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(727, 28);
             this.comboBox1.TabIndex = 13;
+            // 
+            // lblAdicionales
+            // 
+            this.lblAdicionales.AutoSize = true;
+            this.lblAdicionales.Location = new System.Drawing.Point(300, 32);
+            this.lblAdicionales.Name = "lblAdicionales";
+            this.lblAdicionales.Size = new System.Drawing.Size(102, 20);
+            this.lblAdicionales.TabIndex = 0;
+            this.lblAdicionales.Text = "ADICIONALES";
+            this.lblAdicionales.Click += new System.EventHandler(this.lblAdicionales_Click);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.Location = new System.Drawing.Point(0, 542);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(763, 52);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Añadir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pnlDerecho
+            // 
+            this.pnlDerecho.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlDerecho.Location = new System.Drawing.Point(763, 0);
+            this.pnlDerecho.Name = "pnlDerecho";
+            this.pnlDerecho.Size = new System.Drawing.Size(340, 594);
+            this.pnlDerecho.TabIndex = 0;
             // 
             // Form1
             // 

@@ -57,5 +57,39 @@ namespace Caso1
         {
 
         }
+
+        private void cmbPlatosFuerte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            double priceRestar;
+            if (indexMainDish == -1)
+            {
+                priceRestar = 0;
+            }
+            else
+            {
+                priceRestar = getPrecioMainDish(indexMainDish);
+            }
+
+            indexMainDish = cmbPlatosFuerte.SelectedIndex;
+            double price = getPrecioMainDish(indexMainDish);
+            totalOrden += price - priceRestar;
+            //lblTotal.Text = "¢ " + totalOrden.ToString();
+        }
+
+        private double getPrecioMainDish(int indexMainDish)
+        {
+            List<MainDish> mainDishes = this.restaurantData.MainDish;
+            return mainDishes[indexMainDish].getPrice();
+        }
+
+        private void lblBebidas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }   
