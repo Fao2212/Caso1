@@ -31,6 +31,7 @@ namespace Caso1
 
             //Creacion de combos utilizando el ComponentPrototypeFactory solo acepta IAddable
             //Solo deberian poder agregarse componentes existentes definidos en el JSON
+            //El prototype tiene que retornar un clon
             Combo c1 = new Combo("Combo",(MainDish)new ComponentPrototypeFactory().get("test"),new Dictionary<string,Component>());
             c1.addComponent((IAddable) new ComponentPrototypeFactory().get("atest"));//Solo puedo agregar IAddable.
             Combo c2 = new Combo.ComboBuilder().setName("Le combe").setMainDish((MainDish)new ComponentPrototypeFactory().get("test")).addComponent((IAddable)new ComponentPrototypeFactory().get("atest")).build();

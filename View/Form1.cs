@@ -13,13 +13,13 @@ namespace Caso1
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        Controller controlador;
+        public Form1(Controller controlador)
         {
             InitializeComponent();
             RestaurantJsonStructure restaurantData = new ComboDatabase().loadData();
 
             setMainDishes(restaurantData.MainDish);
-
         }
 
         private void setMainDishes(List<MainDish> mainDishes)
@@ -28,6 +28,11 @@ namespace Caso1
             {
                 cmbPlatosFuerte.Items.Add(dish.toString());
             }
+        }
+
+        public void showCombo(string comboText)
+        {
+            //Label.text()asdasdsad
         }
 
 

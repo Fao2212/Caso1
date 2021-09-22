@@ -5,7 +5,7 @@ namespace Caso1.Model{
 
     public class Combo:IPrototype<Combo>{
 
-        string name;
+        string name = "Combo Personalizado";
         MainDish mainDish;
         Dictionary<string,Component> components;
 

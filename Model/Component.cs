@@ -36,7 +36,7 @@ namespace Caso1.Model{
         
 
         public string toString(){
-            return "Nombre: "+this.name+" x"+this.quantity+"\tTotal: ₡"+this.price;
+            return "Nombre: "+this.name+" x"+this.quantity+"\tTotal: ₡"+this.price*this.quantity;
         }
         
         public Component clone(){
