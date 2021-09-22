@@ -11,15 +11,14 @@ namespace Caso1.Model{
             this.code = code;
             this.name = name;
             this.price = price;
-            this.quantity = 1;
+            this.quantity = quantity;
         }
 
-        public Component(string code,string name,double price,ComponentType type){
+        public Component(string code,string name,double price){
             this.code = code;
             this.name = name;
             this.price = price;
             this.quantity = 1;
-            this.type = type;
         }
 
         public void addQuantity(){
@@ -41,7 +40,7 @@ namespace Caso1.Model{
         }
         
         public Component clone(){
-            return new Component(this.code,this.name,this.price,this.type);
+            return new Component(this.code,this.name,this.price,this.quantity,this.type);
         }
         public Component deepClone(){
             return clone();

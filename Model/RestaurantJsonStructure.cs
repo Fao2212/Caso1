@@ -9,9 +9,9 @@ namespace Caso1.Model
 {
     class RestaurantJsonStructure
     {
-        public List<Component> Additional { get; set; }
+        public List<Additional> Additional { get; set; }
 
-        public List<Component> Drink { get; set; }
+        public List<Drink> Drink { get; set; }
 
         public List<MainDish> MainDish { get; set; }
 

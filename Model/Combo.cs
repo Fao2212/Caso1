@@ -34,11 +34,14 @@ namespace Caso1.Model{
             }
 
             ComboBuilder addComponent(IAddable component){
-                Component savedComponent = this.components[component.getCode()];
-                if(savedComponent is null){
-                    savedComponent.addQuantity();}
-                else{
-                    this.components.Add(component.getCode(),new ComponentPrototypeFactory().get(component.getCode()));
+                Component savedComponent;
+                if (this.components.TryGetValue(component.getCode(), out savedComponent))
+                {
+                    savedComponent.addQuantity();
+                }
+                else
+                {
+                    this.components.Add(component.getCode(), new ComponentPrototypeFactory().get(component.getCode()));
                 }
                 return this;
             }
@@ -62,8 +65,8 @@ namespace Caso1.Model{
         }
 
         public void addComponent(IAddable component){
-            Component savedComponent = this.components[component.getCode()];
-            if(savedComponent is null){
+            Component savedComponent;
+            if(this.components.TryGetValue(component.getCode(),out savedComponent)){
                 savedComponent.addQuantity();}
             else{
                 this.components.Add(component.getCode(),new ComponentPrototypeFactory().get(component.getCode()));

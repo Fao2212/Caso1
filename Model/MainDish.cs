@@ -1,15 +1,13 @@
 namespace Caso1.Model{
 
 
-    public class MainDish:Component{
-
-        public MainDish(string code,string name,double price):base(code,name,price){
+    public class MainDish : Component
+    {
+        public MainDish(string code, string name, double price) : base(code, name, price)
+        {
             this.type = ComponentType.MainDish;
         }
-        string code;
-        string name;
-        double price;
-        ComponentType type;
+        
 
         /*public MainDish(string code)
         {
@@ -27,6 +25,6 @@ namespace Caso1.Model{
                 }
             }
         }*/
-    
-    
+
+    }
 }
