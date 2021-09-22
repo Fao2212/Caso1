@@ -33,7 +33,9 @@ namespace Caso1
             //Solo deberian poder agregarse componentes existentes definidos en el JSON
             Combo c1 = new Combo("Combo",(MainDish)new ComponentPrototypeFactory().get("test"),new Dictionary<String,Component>());
             c1.addComponent((IAddable) new ComponentPrototypeFactory().get("atest"));//Solo puedo agregar IAddable.
+            Combo c2 = new Combo.ComboBuilder().setName("Le combe").setMainDish((MainDish)new ComponentPrototypeFactory().get("test")).addComponent((IAddable)new ComponentPrototypeFactory().get("atest")).build();
             System.Diagnostics.Debug.WriteLine(c1.toString());
+            System.Diagnostics.Debug.WriteLine(c2.toString());
             System.Diagnostics.Debug.WriteLine("End");
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);

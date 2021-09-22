@@ -33,18 +33,23 @@ namespace Caso1.Model{
             MainDish mainDish;
             Dictionary<string,Component> components = new Dictionary<string,Component>();
 
-            ComboBuilder setName(string name){
+            static ComboBuilder()
+            {
+
+            }
+
+            public ComboBuilder setName(string name){
                 this.name = name;
                 return this;
             }
 
             //Solo puede tener un plato principal y tiene que ser de tipo MainDish
-            ComboBuilder setMainDish(MainDish mainDish){
+            public ComboBuilder setMainDish(MainDish mainDish){
                 this.mainDish = mainDish;
                 return this;
             }
 
-            ComboBuilder addComponent(IAddable component){
+            public ComboBuilder addComponent(IAddable component){
                 Component savedComponent;
                 if (this.components.TryGetValue(component.getCode(), out savedComponent))
                 {
