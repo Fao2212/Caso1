@@ -32,7 +32,13 @@ namespace Caso1.Model{
 
         public string toString()
         {
-            return this.name;
+            string nombreAndPrecio = this.name + " (¢" + this.price + ")";
+            return nombreAndPrecio;
+        }
+
+        public double getPrice()
+        {
+            return this.price;
         }
 
     }

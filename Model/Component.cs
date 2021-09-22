@@ -20,6 +20,17 @@ namespace Caso1.Model{
         public string toString(){
             return this.name;
         }
+
+        public string getName()
+        {
+            return this.name;
+        }
+
+        public double getPrice()
+        {
+            return this.price;
+        }
+
         public Component clone(){
             return new Component(this.code,this.name,this.price,this.quantity,this.type);
         }
