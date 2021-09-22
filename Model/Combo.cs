@@ -15,6 +15,17 @@ namespace Caso1.Model{
             this.components = components;
         }
 
+        public Combo(string name, MainDish mainDish, List<string> componentCodes)
+        {
+            this.name = name;
+            this.mainDish = mainDish;
+            this.components = new Dictionary<string, Component>();
+            foreach (var code in componentCodes)
+            {
+                addComponent((IAddable)new ComponentPrototypeFactory().get(code));
+            }
+        }
+
         //Clase comboBuidler va a ser usada por el factory para crear los nuevos combos
         public class ComboBuilder:IBuilder<Combo>{
 

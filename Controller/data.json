@@ -85,7 +85,7 @@
       "type": "MainDish"
     }
   ],
-  "Combo": [
+  "ComboJsonStructure": [
     {
       "name": "Combo 1",
       "MainDish": {

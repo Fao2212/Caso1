@@ -16,6 +16,6 @@ namespace Caso1.Model
         public List<MainDish> MainDish { get; set; }
 
         // Revisar el tema del diccionario y cargar el MainDish con sólo el código.
-        public List<Combo> Combos { get; set; }
+        public List<ComboJsonStructure> ComboJsonStructure { get; set; }
     }
 }

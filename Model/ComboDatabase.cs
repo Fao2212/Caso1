@@ -18,6 +18,7 @@ namespace Caso1.Model
         // Cambiar la ubicación del Json para no tener que poner la ruta. 
         private static string _path = "data.json";
 
+
         public static string getDataFromJsonFile()
         {
             string data = File.ReadAllText(_path);
