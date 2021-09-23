@@ -40,18 +40,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCantidadBebida = new System.Windows.Forms.Label();
             this.btnBebidasMas = new System.Windows.Forms.Button();
-            this.btnBebidasMenos = new System.Windows.Forms.Button();
             this.cmbBebidas = new System.Windows.Forms.ComboBox();
             this.lblBebidas = new System.Windows.Forms.Label();
             this.pnlAdicionales = new System.Windows.Forms.Panel();
             this.lblTotalCombo = new System.Windows.Forms.Label();
             this.lblCantidadAdicional = new System.Windows.Forms.Label();
             this.btnAdicionalesMas = new System.Windows.Forms.Button();
-            this.btnAdicionalesMenos = new System.Windows.Forms.Button();
             this.cmbAditional = new System.Windows.Forms.ComboBox();
             this.lblAdicionales = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlDerecho = new System.Windows.Forms.Panel();
+            this.lblOrdenes = new System.Windows.Forms.Label();
             this.lblTotalOrden = new System.Windows.Forms.Label();
             this.pnlCentral.SuspendLayout();
             this.pnlIzquierdo.SuspendLayout();
@@ -161,7 +160,6 @@
             // 
             this.panel1.Controls.Add(this.lblCantidadBebida);
             this.panel1.Controls.Add(this.btnBebidasMas);
-            this.panel1.Controls.Add(this.btnBebidasMenos);
             this.panel1.Controls.Add(this.cmbBebidas);
             this.panel1.Controls.Add(this.lblBebidas);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -189,16 +187,6 @@
             this.btnBebidasMas.UseVisualStyleBackColor = true;
             this.btnBebidasMas.Click += new System.EventHandler(this.btnBebidasMas_Click);
             // 
-            // btnBebidasMenos
-            // 
-            this.btnBebidasMenos.Location = new System.Drawing.Point(43, 78);
-            this.btnBebidasMenos.Name = "btnBebidasMenos";
-            this.btnBebidasMenos.Size = new System.Drawing.Size(94, 29);
-            this.btnBebidasMenos.TabIndex = 3;
-            this.btnBebidasMenos.Text = "Menos";
-            this.btnBebidasMenos.UseVisualStyleBackColor = true;
-            this.btnBebidasMenos.Click += new System.EventHandler(this.btnBebidasMenos_Click);
-            // 
             // cmbBebidas
             // 
             this.cmbBebidas.FormattingEnabled = true;
@@ -206,6 +194,7 @@
             this.cmbBebidas.Name = "cmbBebidas";
             this.cmbBebidas.Size = new System.Drawing.Size(727, 28);
             this.cmbBebidas.TabIndex = 2;
+            this.cmbBebidas.SelectedIndexChanged += new System.EventHandler(this.cmbBebidas_SelectedIndexChanged);
             // 
             // lblBebidas
             // 
@@ -222,7 +211,6 @@
             this.pnlAdicionales.Controls.Add(this.lblTotalCombo);
             this.pnlAdicionales.Controls.Add(this.lblCantidadAdicional);
             this.pnlAdicionales.Controls.Add(this.btnAdicionalesMas);
-            this.pnlAdicionales.Controls.Add(this.btnAdicionalesMenos);
             this.pnlAdicionales.Controls.Add(this.cmbAditional);
             this.pnlAdicionales.Controls.Add(this.lblAdicionales);
             this.pnlAdicionales.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -260,16 +248,6 @@
             this.btnAdicionalesMas.UseVisualStyleBackColor = true;
             this.btnAdicionalesMas.Click += new System.EventHandler(this.btnAdicionalesMas_Click);
             // 
-            // btnAdicionalesMenos
-            // 
-            this.btnAdicionalesMenos.Location = new System.Drawing.Point(43, 109);
-            this.btnAdicionalesMenos.Name = "btnAdicionalesMenos";
-            this.btnAdicionalesMenos.Size = new System.Drawing.Size(94, 29);
-            this.btnAdicionalesMenos.TabIndex = 14;
-            this.btnAdicionalesMenos.Text = "Menos";
-            this.btnAdicionalesMenos.UseVisualStyleBackColor = true;
-            this.btnAdicionalesMenos.Click += new System.EventHandler(this.btnAdicionalesMenos_Click);
-            // 
             // cmbAditional
             // 
             this.cmbAditional.FormattingEnabled = true;
@@ -277,6 +255,7 @@
             this.cmbAditional.Name = "cmbAditional";
             this.cmbAditional.Size = new System.Drawing.Size(727, 28);
             this.cmbAditional.TabIndex = 13;
+            this.cmbAditional.SelectedIndexChanged += new System.EventHandler(this.cmbAditional_SelectedIndexChanged);
             // 
             // lblAdicionales
             // 
@@ -301,12 +280,22 @@
             // 
             // pnlDerecho
             // 
+            this.pnlDerecho.Controls.Add(this.lblOrdenes);
             this.pnlDerecho.Controls.Add(this.lblTotalOrden);
             this.pnlDerecho.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlDerecho.Location = new System.Drawing.Point(763, 0);
             this.pnlDerecho.Name = "pnlDerecho";
             this.pnlDerecho.Size = new System.Drawing.Size(340, 594);
             this.pnlDerecho.TabIndex = 0;
+            // 
+            // lblOrdenes
+            // 
+            this.lblOrdenes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblOrdenes.Location = new System.Drawing.Point(0, 0);
+            this.lblOrdenes.Name = "lblOrdenes";
+            this.lblOrdenes.Size = new System.Drawing.Size(340, 519);
+            this.lblOrdenes.TabIndex = 1;
+            this.lblOrdenes.Text = "Combos: ";
             // 
             // lblTotalOrden
             // 
@@ -362,13 +351,12 @@
         private System.Windows.Forms.ComboBox cmbBebidas;
         private System.Windows.Forms.Label lblCantidadBebida;
         private System.Windows.Forms.Button btnBebidasMas;
-        private System.Windows.Forms.Button btnBebidasMenos;
         private System.Windows.Forms.Label lblCantidadAdicional;
         private System.Windows.Forms.Button btnAdicionalesMas;
-        private System.Windows.Forms.Button btnAdicionalesMenos;
         private System.Windows.Forms.ComboBox cmbAditional;
         private System.Windows.Forms.Label lblTotalCombo;
         private System.Windows.Forms.Label lblTotalOrden;
+        private System.Windows.Forms.Label lblOrdenes;
     }
 }
 

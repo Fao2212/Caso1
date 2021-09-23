@@ -44,6 +44,11 @@ namespace Caso1.Model{
             return this.name;
         }
 
+        public int getQuantity()
+        {
+            return this.quantity;
+        }
+
         public double getPrice()
         {
             return this.price;

@@ -3,7 +3,7 @@ using Caso1.Model.Factories;
 
 namespace Caso1.Model{
 
-    public class Combo:IPrototype<Combo>{
+    public class Combo:IPrototype<Combo>,ICombo{
 
         string name = "Combo Personalizado";
         double price;
@@ -14,6 +14,16 @@ namespace Caso1.Model{
             this.name = name;
             this.mainDish = mainDish;
             this.components = components;
+            //System.Diagnostics.Debug.Writeline(price.ToString());
+        }
+
+        public Combo(string name, MainDish mainDish, Dictionary<string, Component> components, double price)
+        {
+            this.name = name;
+            this.mainDish = mainDish;
+            this.components = components;
+            this.price = price;
+            //System.Diagnostics.Debug.Writeline(price);
         }
 
         public Combo(string name, MainDish mainDish, List<string> componentCodes, double price)
@@ -26,14 +36,16 @@ namespace Caso1.Model{
             {
                 addComponent((IAddable)new ComponentPrototypeFactory().get(code));
             }
+           // System.Diagnostics.Debug.Writline(price);
         }
 
         //Clase comboBuidler va a ser usada por el factory para crear los nuevos combos
-        public class ComboBuilder:IBuilder<Combo>{
+        public class ComboBuilder:IBuilder<Combo>,ICombo{
 
             string name;
             MainDish mainDish;
             Dictionary<string,Component> components = new Dictionary<string,Component>();
+            double price = 0;
 
             static ComboBuilder()
             {
@@ -46,8 +58,9 @@ namespace Caso1.Model{
             }
 
             //Solo puede tener un plato principal y tiene que ser de tipo MainDish
-            public ComboBuilder setMainDish(MainDish mainDish){
-                this.mainDish = mainDish;
+            public ComboBuilder setMainDish(string codeMainDish){
+                this.mainDish = (MainDish)new ComponentPrototypeFactory().get(codeMainDish);
+                this.price += mainDish.getPrice();
                 return this;
             }
 
@@ -65,12 +78,22 @@ namespace Caso1.Model{
             }
 
             public Combo build(){
-                return new Combo(this.name,this.mainDish,this.components);
+                foreach (KeyValuePair<string, Component> component in components)
+                {
+                    this.price += component.Value.getPrice()*component.Value.getQuantity();
+                };
+                return  new Combo(this.name,this.mainDish,this.components,this.price);
             }
+
+            public Combo agregar(){
+                return this.build();
+            }
+
+
         }
 
         public Combo clone(){
-            return new Combo(this.name,this.mainDish,new Dictionary<string,Component>());
+            return new Combo(this.name,this.mainDish,new Dictionary<string,Component>(),this.price);
         }
 
         public Combo deepClone(){
@@ -79,16 +102,20 @@ namespace Caso1.Model{
             {
                 dictionaryClone.Add(component.Key,component.Value.clone());
             }
-            return new Combo(this.name,this.mainDish,dictionaryClone);
+            return new Combo(this.name,this.mainDish,dictionaryClone, this.price);
         }
 
-        public void addComponent(IAddable component){
+        public ComboBuilder addComponent(IAddable component){
             Component savedComponent;
             if(this.components.TryGetValue(component.getCode(),out savedComponent)){
                 savedComponent.addQuantity();}
             else{
-                this.components.Add(component.getCode(),new ComponentPrototypeFactory().get(component.getCode()));
+                savedComponent = new ComponentPrototypeFactory().get(component.getCode());
+                this.components.Add(component.getCode(),savedComponent);
             }
+            this.price += savedComponent.getPrice();
+            // PENDIENTE REVISAR
+            return null;
         }
 
         public string getName()
@@ -142,6 +169,10 @@ namespace Caso1.Model{
             comboString+="\t"+showDrinks()+"\n";
             comboString+="\t"+showAdditionals()+"\n";
             return comboString;
+        }
+
+        public Combo agregar(){
+            return this;
         }
     }
 

@@ -13,11 +13,12 @@ namespace Caso1.Model
         MainDish mainDish;
         List<string> components;
 
-        public ComboJsonStructure(string name,MainDish mainDish, List<string> components)
+        public ComboJsonStructure(string name,MainDish mainDish, List<string> components, double price)
         {
             this.name = name;   
             this.mainDish = mainDish;
             this.components = components;
+            this.price = price;
         }
 
         public Combo toCombo()
@@ -25,12 +26,15 @@ namespace Caso1.Model
             return new Combo(name, mainDish, components, price);
         }
 
+        public string getName()
+        {
+            return name;
+        }
+
         // Por mientras, para cargar datos en el FORM
         public string toString()
         {
-            string comboString = "Combo: " + this.name + "\n";
-            comboString += " Main Dish: " + this.mainDish.toString() + this.price.ToString();
-            return comboString;
+            return toCombo().toString();
         }
     }
 }
