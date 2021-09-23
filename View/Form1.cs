@@ -20,7 +20,7 @@ namespace Caso1
         double totalOrden;
         double totalCocaCola;
         RestaurantJsonStructure restaurantData;
-        public Form1(Controller controlador)
+        //public Form1(Controller controlador)
         public Form1()
         {
             InitializeComponent();

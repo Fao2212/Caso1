@@ -49,10 +49,10 @@ namespace Caso1.Model{
             return this.price;
         }
 
-        public Component clone(){
+        public virtual Component clone(){
             return new Component(this.code,this.name,this.price,this.quantity,this.type);
         }
-        public Component deepClone(){
+        public virtual Component deepClone(){
             return clone();
         }
 
