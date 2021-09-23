@@ -6,6 +6,7 @@ namespace Caso1.Model{
     public class Combo:IPrototype<Combo>{
 
         string name = "Combo Personalizado";
+        double price;
         MainDish mainDish;
         Dictionary<string,Component> components;
 
@@ -15,10 +16,11 @@ namespace Caso1.Model{
             this.components = components;
         }
 
-        public Combo(string name, MainDish mainDish, List<string> componentCodes)
+        public Combo(string name, MainDish mainDish, List<string> componentCodes, double price)
         {
             this.name = name;
             this.mainDish = mainDish;
+            this.price = price;
             this.components = new Dictionary<string, Component>();
             foreach (var code in componentCodes)
             {
@@ -94,6 +96,11 @@ namespace Caso1.Model{
             return this.name; 
         }
 
+        public double getPrice()
+        {
+            return this.price;
+        }
+
         //Necesito funciones que me traigan de el diccionario de componentes el componente a buscar y la cantidad de estos.
         List<Component> getDrinks(){
             List<Component> drinks = new List<Component>();
@@ -131,7 +138,7 @@ namespace Caso1.Model{
 
         public string toString(){
             string comboString = "Combo: "+this.name+"\n";
-            comboString+="Main Dish: "+ this.mainDish.toString();
+            comboString+=" Main Dish: "+ this.mainDish.toString();
             comboString+="\t"+showDrinks()+"\n";
             comboString+="\t"+showAdditionals()+"\n";
             return comboString;

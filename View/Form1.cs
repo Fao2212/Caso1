@@ -20,13 +20,22 @@ namespace Caso1
         double totalOrden;
         double totalCocaCola;
         RestaurantJsonStructure restaurantData;
-        //public Form1(Controller controlador)
+        //public Form1()
         public Form1()
         {
             InitializeComponent();
             this.restaurantData = new ComboDatabase().loadData();
 
             setMainDishes(restaurantData.MainDish);
+            setDrinks(restaurantData.Drink);
+            setAditionals(restaurantData.Additional);
+            setCombos(restaurantData.ComboJsonStructure);
+
+        }
+
+        public void updateTotalOrden(double price)
+        {
+            lblTotalOrden.Text = price.ToString();
         }
 
         private void setMainDishes(List<MainDish> mainDishes)
@@ -36,6 +45,30 @@ namespace Caso1
                 cmbPlatosFuerte.Items.Add(dish.toString());
             }
         }
+
+        private void setDrinks(List<Drink> drinks)
+        {
+            foreach (var drink in drinks)
+            {
+                cmbBebidas.Items.Add(drink.toString());
+            }
+        }
+
+        private void setAditionals(List<Additional> aditionals)
+        {
+            foreach (var aditional in aditionals)
+            {
+                cmbAditional.Items.Add(aditional.toString());
+            }
+        }
+
+        private void setCombos(List<ComboJsonStructure> combos)
+        {
+            foreach (var combo in combos)
+            {
+                cmbCombos.Items.Add(combo.toString());
+            }
+        } 
 
         public void showCombo(string comboText)
         {
@@ -73,7 +106,7 @@ namespace Caso1
             indexMainDish = cmbPlatosFuerte.SelectedIndex;
             double price = getPrecioMainDish(indexMainDish);
             totalOrden += price - priceRestar;
-            //lblTotal.Text = "¢ " + totalOrden.ToString();
+            lblTotalCombo.Text = totalOrden.ToString();
         }
 
         private double getPrecioMainDish(int indexMainDish)
@@ -90,6 +123,54 @@ namespace Caso1
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBebidasMas_Click(object sender, EventArgs e)
+        {
+            int cant = int.Parse(lblCantidadBebida.Text);
+            lblCantidadBebida.Text = (cant + 1 ).ToString();
+        }
+
+        private void btnBebidasMenos_Click(object sender, EventArgs e)
+        {
+            int cant = int.Parse(lblCantidadBebida.Text);
+
+            if (cant-1 > 0) { 
+            
+                lblCantidadBebida.Text = (cant + -1).ToString();
+            }
+            else
+            {
+                lblCantidadBebida.Text = "0";
+                System.Diagnostics.Debug.WriteLine("Agregar método quitar del ");
+            }
+        }
+
+        private void pnlAdicionales_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAdicionalesMenos_Click(object sender, EventArgs e)
+        {
+            int cant = int.Parse(lblCantidadAdicional.Text);
+
+            if (cant - 1 > 0)
+            {
+
+                lblCantidadAdicional.Text = (cant + -1).ToString();
+            }
+            else
+            {
+                lblCantidadAdicional.Text = "0";
+                System.Diagnostics.Debug.WriteLine("Agregar método para quitar quitar del combo");
+            }
+        }
+
+        private void btnAdicionalesMas_Click(object sender, EventArgs e)
+        {
+            int cant = int.Parse(lblCantidadAdicional.Text);
+            lblCantidadAdicional.Text = (cant + 1).ToString();
         }
     }
 }   

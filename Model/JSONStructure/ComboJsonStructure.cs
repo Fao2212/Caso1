@@ -9,6 +9,7 @@ namespace Caso1.Model
     public class ComboJsonStructure
     {
         string name;
+        double price;
         MainDish mainDish;
         List<string> components;
 
@@ -21,7 +22,15 @@ namespace Caso1.Model
 
         public Combo toCombo()
         {
-            return new Combo(name, mainDish, components);
+            return new Combo(name, mainDish, components, price);
+        }
+
+        // Por mientras, para cargar datos en el FORM
+        public string toString()
+        {
+            string comboString = "Combo: " + this.name + "\n";
+            comboString += " Main Dish: " + this.mainDish.toString() + this.price.ToString();
+            return comboString;
         }
     }
 }

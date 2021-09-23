@@ -44,13 +44,15 @@
             this.cmbBebidas = new System.Windows.Forms.ComboBox();
             this.lblBebidas = new System.Windows.Forms.Label();
             this.pnlAdicionales = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblTotalCombo = new System.Windows.Forms.Label();
+            this.lblCantidadAdicional = new System.Windows.Forms.Label();
+            this.btnAdicionalesMas = new System.Windows.Forms.Button();
+            this.btnAdicionalesMenos = new System.Windows.Forms.Button();
+            this.cmbAditional = new System.Windows.Forms.ComboBox();
             this.lblAdicionales = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlDerecho = new System.Windows.Forms.Panel();
+            this.lblTotalOrden = new System.Windows.Forms.Label();
             this.pnlCentral.SuspendLayout();
             this.pnlIzquierdo.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,6 +60,7 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlAdicionales.SuspendLayout();
+            this.pnlDerecho.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCentral
@@ -97,9 +100,6 @@
             // 
             this.cmbCombos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbCombos.FormattingEnabled = true;
-            this.cmbCombos.Items.AddRange(new object[] {
-            "COMBO 1 (2500): Hamburguesa, Papas, Refresco ",
-            "COMBO 2 (3100): Emparedado, Refresco, Helado"});
             this.cmbCombos.Location = new System.Drawing.Point(0, 56);
             this.cmbCombos.Name = "cmbCombos";
             this.cmbCombos.Size = new System.Drawing.Size(763, 28);
@@ -187,6 +187,7 @@
             this.btnBebidasMas.TabIndex = 11;
             this.btnBebidasMas.Text = "Más";
             this.btnBebidasMas.UseVisualStyleBackColor = true;
+            this.btnBebidasMas.Click += new System.EventHandler(this.btnBebidasMas_Click);
             // 
             // btnBebidasMenos
             // 
@@ -196,6 +197,7 @@
             this.btnBebidasMenos.TabIndex = 3;
             this.btnBebidasMenos.Text = "Menos";
             this.btnBebidasMenos.UseVisualStyleBackColor = true;
+            this.btnBebidasMenos.Click += new System.EventHandler(this.btnBebidasMenos_Click);
             // 
             // cmbBebidas
             // 
@@ -217,51 +219,64 @@
             // 
             // pnlAdicionales
             // 
-            this.pnlAdicionales.Controls.Add(this.label2);
-            this.pnlAdicionales.Controls.Add(this.button2);
-            this.pnlAdicionales.Controls.Add(this.button3);
-            this.pnlAdicionales.Controls.Add(this.comboBox1);
+            this.pnlAdicionales.Controls.Add(this.lblTotalCombo);
+            this.pnlAdicionales.Controls.Add(this.lblCantidadAdicional);
+            this.pnlAdicionales.Controls.Add(this.btnAdicionalesMas);
+            this.pnlAdicionales.Controls.Add(this.btnAdicionalesMenos);
+            this.pnlAdicionales.Controls.Add(this.cmbAditional);
             this.pnlAdicionales.Controls.Add(this.lblAdicionales);
             this.pnlAdicionales.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAdicionales.Location = new System.Drawing.Point(0, 381);
             this.pnlAdicionales.Name = "pnlAdicionales";
             this.pnlAdicionales.Size = new System.Drawing.Size(763, 161);
             this.pnlAdicionales.TabIndex = 1;
+            this.pnlAdicionales.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAdicionales_Paint);
             // 
-            // label2
+            // lblTotalCombo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 20);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "0";
+            this.lblTotalCombo.AutoSize = true;
+            this.lblTotalCombo.Location = new System.Drawing.Point(674, 118);
+            this.lblTotalCombo.Name = "lblTotalCombo";
+            this.lblTotalCombo.Size = new System.Drawing.Size(17, 20);
+            this.lblTotalCombo.TabIndex = 17;
+            this.lblTotalCombo.Text = "0";
             // 
-            // button2
+            // lblCantidadAdicional
             // 
-            this.button2.Location = new System.Drawing.Point(166, 109);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Más";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lblCantidadAdicional.AutoSize = true;
+            this.lblCantidadAdicional.Location = new System.Drawing.Point(300, 113);
+            this.lblCantidadAdicional.Name = "lblCantidadAdicional";
+            this.lblCantidadAdicional.Size = new System.Drawing.Size(17, 20);
+            this.lblCantidadAdicional.TabIndex = 16;
+            this.lblCantidadAdicional.Text = "0";
             // 
-            // button3
+            // btnAdicionalesMas
             // 
-            this.button3.Location = new System.Drawing.Point(43, 109);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Menos";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAdicionalesMas.Location = new System.Drawing.Point(166, 109);
+            this.btnAdicionalesMas.Name = "btnAdicionalesMas";
+            this.btnAdicionalesMas.Size = new System.Drawing.Size(94, 29);
+            this.btnAdicionalesMas.TabIndex = 15;
+            this.btnAdicionalesMas.Text = "Más";
+            this.btnAdicionalesMas.UseVisualStyleBackColor = true;
+            this.btnAdicionalesMas.Click += new System.EventHandler(this.btnAdicionalesMas_Click);
             // 
-            // comboBox1
+            // btnAdicionalesMenos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(727, 28);
-            this.comboBox1.TabIndex = 13;
+            this.btnAdicionalesMenos.Location = new System.Drawing.Point(43, 109);
+            this.btnAdicionalesMenos.Name = "btnAdicionalesMenos";
+            this.btnAdicionalesMenos.Size = new System.Drawing.Size(94, 29);
+            this.btnAdicionalesMenos.TabIndex = 14;
+            this.btnAdicionalesMenos.Text = "Menos";
+            this.btnAdicionalesMenos.UseVisualStyleBackColor = true;
+            this.btnAdicionalesMenos.Click += new System.EventHandler(this.btnAdicionalesMenos_Click);
+            // 
+            // cmbAditional
+            // 
+            this.cmbAditional.FormattingEnabled = true;
+            this.cmbAditional.Location = new System.Drawing.Point(12, 75);
+            this.cmbAditional.Name = "cmbAditional";
+            this.cmbAditional.Size = new System.Drawing.Size(727, 28);
+            this.cmbAditional.TabIndex = 13;
             // 
             // lblAdicionales
             // 
@@ -286,11 +301,21 @@
             // 
             // pnlDerecho
             // 
+            this.pnlDerecho.Controls.Add(this.lblTotalOrden);
             this.pnlDerecho.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlDerecho.Location = new System.Drawing.Point(763, 0);
             this.pnlDerecho.Name = "pnlDerecho";
             this.pnlDerecho.Size = new System.Drawing.Size(340, 594);
             this.pnlDerecho.TabIndex = 0;
+            // 
+            // lblTotalOrden
+            // 
+            this.lblTotalOrden.AutoSize = true;
+            this.lblTotalOrden.Location = new System.Drawing.Point(262, 542);
+            this.lblTotalOrden.Name = "lblTotalOrden";
+            this.lblTotalOrden.Size = new System.Drawing.Size(17, 20);
+            this.lblTotalOrden.TabIndex = 0;
+            this.lblTotalOrden.Text = "0";
             // 
             // Form1
             // 
@@ -311,6 +336,8 @@
             this.panel1.PerformLayout();
             this.pnlAdicionales.ResumeLayout(false);
             this.pnlAdicionales.PerformLayout();
+            this.pnlDerecho.ResumeLayout(false);
+            this.pnlDerecho.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -336,10 +363,12 @@
         private System.Windows.Forms.Label lblCantidadBebida;
         private System.Windows.Forms.Button btnBebidasMas;
         private System.Windows.Forms.Button btnBebidasMenos;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblCantidadAdicional;
+        private System.Windows.Forms.Button btnAdicionalesMas;
+        private System.Windows.Forms.Button btnAdicionalesMenos;
+        private System.Windows.Forms.ComboBox cmbAditional;
+        private System.Windows.Forms.Label lblTotalCombo;
+        private System.Windows.Forms.Label lblTotalOrden;
     }
 }
 
