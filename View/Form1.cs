@@ -35,8 +35,10 @@ namespace Caso1
 
         }
         
-        public void updateTotalOrden(double price)
+        public void updateTotalOrden(double newPrice)
         {
+            double price = double.Parse(lblTotalOrden.Text);
+            price += newPrice;
             lblTotalOrden.Text = price.ToString();
         }
 
@@ -74,7 +76,7 @@ namespace Caso1
 
         public void showCombo(string comboText)
         {
-            lblOrdenes.Text = comboText;
+            lblOrdenes.Text += comboText + "\n\n";
         }
 
 
@@ -134,6 +136,13 @@ namespace Caso1
         private void button1_Click(object sender, EventArgs e)
         {
             controlador.build();
+            lblCantidadAdicional.Text = "0";
+            lblCantidadBebida.Text = "0";
+            cmbAditional.Text = "";
+            cmbBebidas.Text = "";
+            cmbCombos.Text = "";
+            cmbPlatosFuerte.Text = "";
+            
         }
 
         private void btnBebidasMas_Click(object sender, EventArgs e)

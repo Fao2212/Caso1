@@ -48,7 +48,7 @@
             this.btnAdicionalesMas = new System.Windows.Forms.Button();
             this.cmbAditional = new System.Windows.Forms.ComboBox();
             this.lblAdicionales = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.pnlDerecho = new System.Windows.Forms.Panel();
             this.lblOrdenes = new System.Windows.Forms.Label();
             this.lblTotalOrden = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             this.pnlIzquierdo.Controls.Add(this.panel2);
             this.pnlIzquierdo.Controls.Add(this.panel1);
             this.pnlIzquierdo.Controls.Add(this.pnlAdicionales);
-            this.pnlIzquierdo.Controls.Add(this.button1);
+            this.pnlIzquierdo.Controls.Add(this.btnAgregar);
             this.pnlIzquierdo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlIzquierdo.Location = new System.Drawing.Point(0, 0);
             this.pnlIzquierdo.Name = "pnlIzquierdo";
@@ -267,16 +267,16 @@
             this.lblAdicionales.Text = "ADICIONALES";
             this.lblAdicionales.Click += new System.EventHandler(this.lblAdicionales_Click);
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 542);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(763, 52);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Añadir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAgregar.Location = new System.Drawing.Point(0, 542);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(763, 52);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.Text = "Añadir";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlDerecho
             // 
@@ -340,7 +340,7 @@
         private System.Windows.Forms.Label lblAdicionales;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblBebidas;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel3;

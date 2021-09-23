@@ -34,7 +34,7 @@ namespace Caso1.Model{
             this.components = new Dictionary<string, Component>();
             foreach (var code in componentCodes)
             {
-                addComponent((IAddable)new ComponentPrototypeFactory().get(code));
+                addComponentNoPrice((IAddable)new ComponentPrototypeFactory().get(code));
             }
            // System.Diagnostics.Debug.Writline(price);
         }
@@ -117,6 +117,24 @@ namespace Caso1.Model{
             // PENDIENTE REVISAR
             return null;
         }
+
+        public ComboBuilder addComponentNoPrice(IAddable component)
+        {
+            Component savedComponent;
+            if (this.components.TryGetValue(component.getCode(), out savedComponent))
+            {
+                savedComponent.addQuantity();
+            }
+            else
+            {
+                savedComponent = new ComponentPrototypeFactory().get(component.getCode());
+                this.components.Add(component.getCode(), savedComponent);
+            }
+            // PENDIENTE REVISAR
+            return null;
+        }
+
+            
 
         public string getName()
         {
